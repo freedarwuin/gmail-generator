@@ -48,9 +48,9 @@ def open_firefox():
 
     # Clicking the start button
     if not  pyautogui.click(_location_):
-        msg(1,'Opened start menu successfully!')
+        msg(1,'¡El menú de inicio se abrió correctamente!')
     else:
-        msg(3,'Failed to open start menu!')
+        msg(3,'¡Error al abrir el menú de inicio!')
         ext()
 
     time.sleep(2)
@@ -60,7 +60,7 @@ def open_firefox():
     pyautogui.typewrite('\n')
     
     # Print message
-    msg(1,'Firefox is now open and running.')
+    msg(1,'Firefox ahora está abierta y en ejecución.')
 
 
 # Function used to locate GMail
@@ -70,7 +70,7 @@ def locate_gmail():
     time.sleep(3)
 
     # Printing message
-    msg(1,'Opening Gmail...')
+    msg(1,'Abriendo Gmail...')
 
     # Typing the website on the browser
     pyautogui.keyDown('ctrlleft');  pyautogui.typewrite('a'); pyautogui.keyUp('ctrlleft')
@@ -81,7 +81,7 @@ def locate_gmail():
     time.sleep(6)
 
     # Print a simple message
-    msg(1,'Locating the form...')
+    msg(1,'Localizando el formulario...')
 
     # Locate the form
     pyautogui.press('tab')
@@ -94,9 +94,9 @@ def locate_gmail():
     
     # Check and print message
     if not pyautogui.click(formx, formy):
-        msg(1,'Located the form.')
+        msg(1,'Ubicado el formulario.')
     else:
-        msg(3,'Failed to locate the form.')
+        msg(3,'No se pudo localizar el formulario.')
         ext()
 
 
@@ -137,7 +137,7 @@ def randomize(
         return _generated_info_
 
     else:
-        msg(3,'No valid length specified...')
+        msg(3,'No se especificó ninguna longitud válida...')
         ext()
 
 
@@ -145,7 +145,7 @@ def randomize(
 def generate_info():
 
     # Print message
-    msg(1,'Generating credentials...')
+    msg(1,'Generando credenciales...')
 
     # First and last name
     _first_name_=randomize('-l',7)
@@ -154,13 +154,13 @@ def generate_info():
     _last_name_=randomize('-l',8)
     pyautogui.typewrite(_last_name_)
     pyautogui.typewrite('\t')
-    msg(2,'\x1b[0;33;40mName:\x1b[0m %s %s' % (_first_name_,_last_name_))
+    msg(2,'\x1b[0;33;40mNombre:\x1b[0m %s %s' % (_first_name_,_last_name_))
 
     # Username
     _username_=randomize('-l',10)
     pyautogui.typewrite(_username_)
     pyautogui.typewrite('\t')
-    msg(2,'\x1b[0;33;40mUsername:\x1b[0m %s' % _username_)
+    msg(2,'\x1b[0;33;40mNombre de usuario:\x1b[0m %s' % _username_)
 
     # Password
     _password_=randomize('-p',16)
@@ -172,11 +172,11 @@ def generate_info():
     _day_=randomize('-d',1)
     _year_=randomize('-y',1)
     pyautogui.typewrite(_month_+'\t'+str(_day_)+'\t'+str(_year_)+'\t')
-    msg(2,'\x1b[0;33;40mDate of birth:\x1b[0m %s/%d/%d' % (_month_,_day_,_year_))
+    msg(2,'\x1b[0;33;40mFecha de nacimiento:\x1b[0m %s/%d/%d' % (_month_,_day_,_year_))
 
     # Gender (set to 'Rather not say')
     pyautogui.typewrite('R\t')
-    msg(2,'\x1b[0;33;40mGender:\x1b[0m Rather not say')
+    msg(2,'\x1b[0;33;40mGénero:\x1b[0m Prefiero no decirlo')
 
     # Skip the rest
     pyautogui.typewrite('\t\t\t\t\n')
@@ -185,16 +185,16 @@ def generate_info():
 if __name__=='__main__':
 
     if open_firefox() :
-        msg(3,'Failed to execute "open_firefox" command.')
+        msg(3,'No se pudo ejecutar el comando "abrir firefox".')
         ext()
 
     if locate_gmail() :
-        msg(3,'Failed to execute "locate_gmail" command.')
+        msg(3,'No se pudo ejecutar el comando "locate_gmail".')
         ext()
 
     if generate_info() :
-        msg(3,'Failed to execute "generate_info" command.')
+        msg(3,'No se pudo ejecutar el comando "generate_info".')
         ext()
 
-    msg(1,'Done...')
+    msg(1,'Hecho...')
     ext()
